@@ -32,7 +32,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -71,4 +70,31 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box {
+    outline: 1px solid red;
+    width: 60px;
+    height: 60px;
+}
+
+.board {
+    width: 420px;
+    height: 420px;
+    outline: 5px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.flow > * + * {
+    margin-top: 2em;
 }
