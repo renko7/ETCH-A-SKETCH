@@ -19,8 +19,8 @@ function generateBoard(rowLength) {
         const box = document.createElement('div')
         box.style.width = `${size}px`
         box.style.height = `${size}px`
+        box.style.backgroundColor = 'white'
         box.addEventListener("mouseover", (e) => e.target.style.background = "black")
-        box.classList.add('box')
         board.append(box)
     }
 }
