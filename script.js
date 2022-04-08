@@ -1,6 +1,32 @@
 const board = document.querySelector('.board')
-const boxes = document.querySelectorAll('.box')
+const sizeForm = document.querySelector("[data-name='submit-form']")
+const boardDimensions = 420;
 
-for (const box of boxes) {
-    box.addEventListener("mouseover", (e) => e.target.style.background = "black")
+
+sizeForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    size = e.target.elements[0].value
+    generateBoard(size)
+})
+
+function generateBoard(rowLength) {
+    clearBoard()
+    const size = boardDimensions / rowLength
+    const boxCount = rowLength ** 2
+    console.log('size', size)
+    console.log('box count', boxCount)
+    for (let i = 0; i < boxCount; i++) {
+        const box = document.createElement('div')
+        box.style.width = `${size}px`
+        box.style.height = `${size}px`
+        box.addEventListener("mouseover", (e) => e.target.style.background = "black")
+        box.classList.add('box')
+        board.append(box)
+    }
 }
+
+function clearBoard() {
+    board.innerHTML = ''
+}
+
+generateBoard(7)
